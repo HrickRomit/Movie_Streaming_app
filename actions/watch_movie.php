@@ -1,0 +1,3 @@
+<?php
+// Watch movie action
+?>

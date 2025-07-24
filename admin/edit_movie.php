@@ -1,0 +1,3 @@
+<?php
+// Edit movie form
+?>

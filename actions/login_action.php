@@ -1,0 +1,3 @@
+<?php
+// Login action handler
+?>
