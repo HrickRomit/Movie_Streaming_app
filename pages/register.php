@@ -25,7 +25,7 @@ session_start();
         <form action="../actions/register_action.php" method="POST">
             <div class="input-group">
                 <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="username" required placeholder="Robert">
+                <input type="text" id="fullname" name="username" required placeholder="NUNU">
             </div>
 
             <div class="input-group">
