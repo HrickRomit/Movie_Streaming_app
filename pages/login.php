@@ -30,6 +30,7 @@ include '../includes/header.php';
    
   </form>
   <P>hello loelasda</P>
+  <p>NIGRO</p>
 </div>
 
 <?php include '../includes/footer.php'; ?>
