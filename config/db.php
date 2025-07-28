@@ -3,7 +3,7 @@
 $host = 'localhost'; // Database host
 $username = 'root'; // Database username
 $password = ''; // Database password
-$dbname = 'dbms_movie_project'; // Database name
+$dbname = 'hrickngr'; // Database name
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
