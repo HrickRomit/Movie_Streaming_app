@@ -4,5 +4,5 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-echo "Login successful your mother gay";
+echo "Login successfu. Redirecting...";
 ?>
