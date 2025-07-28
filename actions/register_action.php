@@ -21,10 +21,10 @@ if (mysqli_num_rows($check_result) > 0) {
 }
 
 // 3. Hash the password
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+// $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // 4. Insert into database
-$insert_query = "INSERT INTO User (Username, Email, Password) VALUES ('$username', '$email', '$hashedPassword')";
+$insert_query = "INSERT INTO User (Username, Email, Password) VALUES ('$username', '$email', '$password')";
 
 if (mysqli_query($conn, $insert_query)) {
     header("Location: ../pages/login.php?success=registered");
