@@ -29,8 +29,7 @@ include '../includes/header.php';
     </div>
    
   </form>
-  <P>hello loelasda</P>
-  <p>NIGRO</p>
+  <p>hrick is a negga</p>
 </div>
 
 <?php include '../includes/footer.php'; ?>
