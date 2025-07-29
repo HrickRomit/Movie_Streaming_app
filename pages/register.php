@@ -25,12 +25,12 @@ session_start();
         <form action="../actions/register_action.php" method="POST">
             <div class="input-group">
                 <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="username" required placeholder="NUNU">
+                <input type="text" id="fullname" name="username" required placeholder="HrickRomit">
             </div>
 
             <div class="input-group">
                 <label for="email">Work email</label>
-                <input type="email" id="email" name="email" required placeholder="Robert.Johnson@gmail.com">
+                <input type="email" id="email" name="email" required placeholder="hrickromit@gmail.com">
             </div>
 
             <div class="input-group">

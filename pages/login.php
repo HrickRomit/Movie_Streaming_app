@@ -29,9 +29,6 @@ session_start();
     </div>
    
   </form>
-  <p>hrick is a negga</p>
-  <p>imtiaz is a nigga</p>
-  <p>shiki is a chigga</p>
 </div>
 
 <?php include '../includes/footer.php'; ?>
