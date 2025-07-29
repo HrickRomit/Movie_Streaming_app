@@ -23,8 +23,38 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Categories</a>
+      <style>
+  /* You can put this in your CSS file */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 100;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+  }
+  .dropdown-menu a:hover {
+    background: #f0f0f0;
+  }
+</style>
+
+<li class="nav-item dropdown" style="position:relative;">
+  <a class="nav-link dropdown-toggle" href="#">Categories</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Drama</a>
+    <a class="dropdown-item" href="#">Comedy</a>
+  </div>
+</li>
       </li>
       <?php if (isset($_SESSION['user_id'])): ?>
         <li class="nav-item">
