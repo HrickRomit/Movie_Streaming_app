@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/header.php';
+// include '../includes/header.php';
 ?>
 
 <link rel="stylesheet" href="../assets/css/styles.css"> <!-- Link to your CSS file -->
