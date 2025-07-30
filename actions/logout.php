@@ -1,0 +1,11 @@
+<?php
+// Destroy session
+?>
+<?php
+session_start();        // Start the session
+session_unset();        // Unset all session variables
+session_destroy();      // Destroy the session
+
+header("Location: ../pages/login.php"); // Redirect to login page (adjust the path if needed)
+exit();
+?>

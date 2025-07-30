@@ -23,8 +23,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <style>
-  /* You can put this in your CSS file */
+
+<!--categories dropdown* -->
+<style>
   .dropdown:hover .dropdown-menu {
     display: block;
   }
@@ -51,8 +52,15 @@
   <a class="nav-link dropdown-toggle" href="#">Categories</a>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Drama</a>
     <a class="dropdown-item" href="#">Comedy</a>
+    <a class="dropdown-item" href="#">Drama</a>
+    <a class="dropdown-item" href="#">Sci-Fi</a>
+    <a class="dropdown-item" href="#">Horror</a>
+    <a class="dropdown-item" href="#">Romance</a>
+    <a class="dropdown-item" href="#">Thriller</a>
+    <a class="dropdown-item" href="#">Fantassy</a>
+    <a class="dropdown-item" href="#">Animation</a>
+    <a class="dropdown-item" href="#">Adventure</a>
   </div>
 </li>
       </li>
