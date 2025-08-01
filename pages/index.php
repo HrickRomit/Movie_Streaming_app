@@ -23,10 +23,13 @@ include '../config/db.php'; // Adjust path as needed
 $sql = "SELECT MovieName, MovieLanguage, ReleaseYear FROM movies";
 $result = $conn->query($sql);
 
+
+
 if ($result->num_rows > 0) {
     // Start Bootstrap-styled table, with padding/margin for spacing
+    
     echo '<div class="container" style="margin-top:40px;">';
-    echo '<table class="table table-bordered table-striped" style="margin:auto; width:80%;">';
+    echo '<table class="table table-bordered table-striped bg-white text-dark" style="margin:auto; width:80%;">';
     echo '<thead class="thead-dark"><tr>
             <th style="text-align:center;">Movie Name</th>
             <th style="text-align:center;">Language</th>
