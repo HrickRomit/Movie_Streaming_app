@@ -29,8 +29,8 @@ if ($result->num_rows > 0) {
     // Start Bootstrap-styled table, with padding/margin for spacing
     
     echo '<div class="container" style="margin-top:40px;">';
-    echo '<table class="table table-bordered table-striped bg-white text-dark" style="margin:auto; width:80%;">';
-    echo '<thead class="thead-dark"><tr>
+    echo '<table class="table table-bordered table-striped bg-dark text-white" style="margin:auto; width:80%;">';
+    echo '<thead class="thead-light"><tr>
             <th style="text-align:center;">Movie Name</th>
             <th style="text-align:center;">Language</th>
             <th style="text-align:center;">Release Year</th>
