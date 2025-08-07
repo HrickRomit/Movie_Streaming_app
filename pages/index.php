@@ -20,7 +20,7 @@ include '../includes/header.php';
 <?php
 include '../config/db.php'; // Adjust path as needed
 
-$sql = "SELECT MovieName, MovieLanguage, ReleaseYear FROM movies";
+$sql = "SELECT MovieID, MovieName, MovieLanguage, ReleaseYear FROM movies";
 $result = $conn->query($sql);
 
 
@@ -41,6 +41,9 @@ if ($result->num_rows > 0) {
         echo '<td style="text-align:center;">' . htmlspecialchars($row['MovieName']) . '</td>';
         echo '<td style="text-align:center;">' . htmlspecialchars($row['MovieLanguage']) . '</td>';
         echo '<td style="text-align:center;">' . htmlspecialchars($row['ReleaseYear']) . '</td>';
+        echo '<td style="text-align:center;">
+            <a class="btn btn-sm btn-primary" href="../pages/play_movie.php?id=' . urlencode($row['MovieID']) . '">Watch</a>
+          </td>';
         echo '</tr>';
     }
     echo '</tbody></table></div>';

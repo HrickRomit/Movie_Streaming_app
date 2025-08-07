@@ -100,7 +100,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 <div class="form-container">
     <h2>Add Movie</h2>
 
-    <form method="POST" action="../admin_actions/add_movie_action.php">
+    <form method="POST" action="../admin_actions/add_movie_action.php" enctype="multipart/form-data">
         <div class="form-group">
             <label>Movie Name</label>
             <input name="name" required>
@@ -138,6 +138,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
             </select>
         </div>
 
+        <input type="file" name="video" accept="video/mp4,video/webm,video/ogg" required>
         <button type="submit">Add Movie</button>
     </form>
 

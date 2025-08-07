@@ -11,6 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $thumbnail = $_POST['thumbnail'];
     $genre = $_POST['genre'];
 
+    $videoName = $_FILES['video']['name'];
+    $videoTmp = $_FILES['video']['tmp_name'];
+    $videoPath = '../uploads/videos/' . basename($videoName);
+ 
     // Check if the movie already exists (by name and year)
     $check_query = "SELECT * FROM movies WHERE MovieName = ? AND ReleaseYear = ?";
     $check_stmt = $conn->prepare($check_query);
@@ -24,17 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+     if (!move_uploaded_file($videoTmp, $videoPath)) {
+        header("Location: ../pages/add_movie.php?error=" . urlencode("Video upload failed."));
+        exit();
+    }
+
     // Proceed to insert the new movie
-    $insert_sql = "INSERT INTO movies (MovieName, MovieLanguage, ReleaseYear, Description, Thumbnail, GenreID)
-                   VALUES (?, ?, ?, ?, ?, ?)";
+   $insert_sql = "INSERT INTO movies (MovieName, MovieLanguage, ReleaseYear, Description, Thumbnail, GenreID, MovieVideo)
+               VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insert_sql);
+
 
     if (!$stmt) {
         header("Location: ../admin/add_movie.php?error=" . urlencode("SQL preparation failed: " . $conn->error));
         exit();
     }
 
-    $stmt->bind_param("ssissi", $name, $language, $year, $description, $thumbnail, $genre);
+    $stmt->bind_param("ssissis", $name, $language, $year, $description, $thumbnail, $genre, $videoPath);
 
     if ($stmt->execute()) {
         header("Location: ../admin/add_movie.php?success=1");
