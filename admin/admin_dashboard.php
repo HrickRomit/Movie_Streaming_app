@@ -20,7 +20,6 @@ include '../config/db.php'; // ✅ Add this line to connect to DB
     
     <div class="d-flex flex-column align-items-center">
         <a href="../admin/add_movie.php" class="btn btn-success btn-lg mb-3" style="width: 50%;">Add Movie</a>
-        <a href="delete_movie.php" class="btn btn-danger btn-lg mb-3" style="width: 50%;">Delete Movie</a>
         <a href="delete_user.php" class="btn btn-warning btn-lg mb-3" style="width: 50%;">Delete User</a>
     </div>
 
@@ -33,6 +32,7 @@ include '../config/db.php'; // ✅ Add this line to connect to DB
                 <th>Genre</th>
                 <th>Release Year</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +50,11 @@ include '../config/db.php'; // ✅ Add this line to connect to DB
                         <td>{$movie['GenreName']}</td>
                         <td>{$movie['ReleaseYear']}</td>
                         <td><a href='edit_movie.php?id={$movie['MovieID']}' class='btn btn-primary'>Edit</a></td>
+                        <td><a href='../admin/delete_confirmation.php?id={$movie['MovieID']}' class='btn btn-danger'
+                        onclick=\"return confirm('Are you sure you want to delete this movie?');\">
+                        Delete
+                        </a>
+                        </td>
                       </tr>";
             }
             ?>
