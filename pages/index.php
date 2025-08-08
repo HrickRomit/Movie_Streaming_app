@@ -20,7 +20,7 @@ include '../includes/header.php';
 <?php
 include '../config/db.php'; // Adjust path as needed
 
-$sql = "SELECT MovieID, MovieName, MovieLanguage, ReleaseYear FROM movies";
+$sql = "SELECT MovieID, MovieName, MovieLanguage, GenreName, ReleaseYear FROM movies m , genre g WHERE m.genreid = g.genreid";
 $result = $conn->query($sql);
 
 
@@ -28,27 +28,29 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Start Bootstrap-styled table, with padding/margin for spacing
     
-    echo '<div class="container" style="margin-top:40px;">';
-    echo '<table class="table table-bordered table-striped bg-dark text-white" style="margin:auto; width:80%;">';
-    echo '<thead class="thead-light"><tr>
-            <th style="text-align:center;">Movie Name</th>
-            <th style="text-align:center;">Language</th>
-            <th style="text-align:center;">Release Year</th>
-          </tr></thead>';
-    echo '<tbody>';
-    while($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        echo '<td style="text-align:center;">' . htmlspecialchars($row['MovieName']) . '</td>';
-        echo '<td style="text-align:center;">' . htmlspecialchars($row['MovieLanguage']) . '</td>';
-        echo '<td style="text-align:center;">' . htmlspecialchars($row['ReleaseYear']) . '</td>';
-        echo '<td style="text-align:center;">
-            <a class="btn btn-sm btn-primary" href="../pages/play_movie.php?id=' . urlencode($row['MovieID']) . '">Watch</a>
-          </td>';
-        echo '</tr>';
-    }
-    echo '</tbody></table></div>';
+    echo '<div class="container mt-4">';
+echo '  <div class="row">';
+
+while ($row = $result->fetch_assoc()) {
+    $movieID = $row['MovieID'];
+    $img = "../uploads/images/{$movieID}.jpg";           // e.g., uploads/images/1.jpg
+    $placeholder = "../uploads/images/placeholder.jpg";  // add this file
+    if (!file_exists($img)) { $img = $placeholder; }
+
+    echo '    <div class="col-6 col-md-4 col-lg-3 mb-4">';
+    echo '      <div class="card bg-dark text-white h-100" style="border:none;">';
+    echo '        <img src="'. $img .'" alt="'. htmlspecialchars($row['MovieName']) .'" class="card-img-top" style="height:200px;object-fit:cover;">';
+    echo '        <div class="card-body text-center p-2">';
+    echo '          <h6 class="card-title mb-1">'. htmlspecialchars($row['MovieName']) .'</h6>';
+    echo '          <div class="small text-muted">'. htmlspecialchars($row['MovieLanguage']) .' • '. htmlspecialchars($row['ReleaseYear']).' • '. htmlspecialchars($row['GenreName']) .'</div>';
+    echo '        </div>';
+    echo '      </div>';
+    echo '    </div>';
+}
+
+echo '  </div>';
+echo '</div>';
 } else {
     echo "<p style='text-align:center;'>No movies found.</p>";
 }
 ?>
-
