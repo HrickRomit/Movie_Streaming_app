@@ -53,4 +53,6 @@ echo '</div>';
 } else {
     echo "<p style='text-align:center;'>No movies found.</p>";  
 }
+
+echo 'hello world';
 ?>
