@@ -60,6 +60,8 @@ if (!$movie) {
             <label>Change Thumbnail (optional):</label>
             <input type="file" name="thumbnail" class="form-control">
         </div>
+        <input type="file" name="video" accept="video/mp4,video/webm,video/ogg" required>
+        <button type="submit">Add Movie</button>
 
         <button type="submit" class="btn btn-primary">Update Movie</button>
     </form>

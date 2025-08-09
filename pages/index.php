@@ -55,6 +55,7 @@ while ($row = $result->fetch_assoc()) {
     if (!file_exists($img)) { $img = $placeholder; }
 
     echo '    <div class="col-6 col-md-4 col-lg-3 mb-4">';
+    echo '    <a href="play_movie.php?id='. $movieID .'" style="text-decoration:none;color:inherit;">';
     echo '      <div class="card bg-dark text-white h-100" style="border:none;">';
     echo '        <img src="'. $img .'" alt="'. htmlspecialchars($row['MovieName']) .'" class="card-img-top" style="height:350px;object-fit:cover;">';
     echo '        <div class="card-body text-center p-2">';
