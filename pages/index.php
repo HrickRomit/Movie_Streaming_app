@@ -20,10 +20,27 @@ include '../includes/header.php';
 <?php
 include '../config/db.php'; // Adjust path as needed
 
-$sql = "SELECT MovieID, MovieName, MovieLanguage, GenreName, ReleaseYear FROM movies m , genre g WHERE m.genreid = g.genreid";
-$result = $conn->query($sql);
+$genreId = isset($_GET['genre']) ? (int)$_GET['genre'] : 0;
 
-
+if ($genreId > 0) {
+    $stmt = $conn->prepare("
+        SELECT m.MovieID, m.MovieName, m.MovieLanguage, g.GenreName, m.ReleaseYear
+        FROM movies m
+        JOIN genre g ON m.genreid = g.genreid
+        WHERE m.genreid = ?
+        ORDER BY m.MovieName
+    ");
+    $stmt->bind_param("i", $genreId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $result = $conn->query("
+        SELECT m.MovieID, m.MovieName, m.MovieLanguage, g.GenreName, m.ReleaseYear
+        FROM movies m
+        JOIN genre g ON m.genreid = g.genreid
+        ORDER BY m.MovieName
+    ");
+}
 
 if ($result->num_rows > 0) {
     // Start Bootstrap-styled table, with padding/margin for spacing
