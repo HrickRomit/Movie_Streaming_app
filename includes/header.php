@@ -14,7 +14,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
   <a class="navbar-brand" href="../pages/index.php">
     <img src="../uploads/logos/main_logo.jpg" alt="MovieDB Logo" height="40">
 </a>
@@ -36,33 +36,34 @@
     position: absolute;
     background: white;
     min-width: 150px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 100;
   }
   .dropdown-menu a {
     display: block;
     padding: 8px 16px;
-    color: #333;
+    color: #000000ff;
     text-decoration: none;
   }
   .dropdown-menu a:hover {
-    background: #f0f0f0;
+    background: #646464ff;
   }
 </style>
 
 <li class="nav-item dropdown" style="position:relative;">
   <a class="nav-link dropdown-toggle" href="#">Categories</a>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Comedy</a>
-    <a class="dropdown-item" href="#">Drama</a>
-    <a class="dropdown-item" href="#">Sci-Fi</a>
-    <a class="dropdown-item" href="#">Horror</a>
-    <a class="dropdown-item" href="#">Romance</a>
-    <a class="dropdown-item" href="#">Thriller</a>
-    <a class="dropdown-item" href="#">Fantassy</a>
-    <a class="dropdown-item" href="#">Animation</a>
-    <a class="dropdown-item" href="#">Adventure</a>
+    <a class="dropdown-item" href="../pages/index.php">All</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=1">Action</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=2">Comedy</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=3">Drama</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=4">Sci-Fi</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=5">Horror</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=6">Romance</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=7">Thriller</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=8">Fantasy</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=9">Animation</a>
+    <a class="dropdown-item" href="../pages/index.php?genre=10">Adventure</a>
   </div>
 </li>
       </li>
@@ -79,7 +80,11 @@
 
     <form class="form-inline my-2 my-lg-0" action="#" method="GET">
       <input class="form-control mr-sm-2" type="search" placeholder="Search movies" name="query" />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" 
+        type="submit" 
+        style="background-color:#2C3E57; color:white; border:none; border-radius:8px;">
+        Search
+      </button>
     </form>
   </div>
 </nav>

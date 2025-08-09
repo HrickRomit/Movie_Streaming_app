@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #000000;
   color: #fff;
   min-height: 100vh;
   position: relative;
@@ -112,4 +112,12 @@ form button {
   color: #666;
   font-size: 0.75rem;
   margin-top: 20px;
+}
+
+.movie-title {
+    white-space: nowrap;       /* keep text in one line */
+    overflow: hidden;          /* hide overflow */
+    text-overflow: ellipsis;   /* add "..." */
+    display: block;            /* make it work on block elements */
+    max-width: 100%;           /* don't exceed parent width */
 }
