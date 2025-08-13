@@ -72,5 +72,4 @@ echo '</div>';
     echo "<p style='text-align:center;'>No movies found.</p>";  
 }
 
-echo 'hello world';
 ?>
