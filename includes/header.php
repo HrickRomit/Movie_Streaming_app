@@ -72,6 +72,9 @@
         <li class="nav-item">
           <a class="nav-link" href="../actions/logout.php">Logout</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/watch-history.php">Watch History</a>
+        </li>
       <?php else: ?>
         <li class="nav-item">
           <a class="nav-link" href="../pages/login.php">Login</a>

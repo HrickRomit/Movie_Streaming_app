@@ -5,6 +5,11 @@ if (!isset($_GET['id'])) {
     echo "No movie ID provided.";
     exit;
 }
+session_start();
+if (!isset($_SESSION['user_id'])) {
+        header('Location: login.php');
+        exit;
+}
 
 $movie_id = intval($_GET['id']);
 $query = "SELECT * FROM movies WHERE MovieID = ?";
@@ -78,5 +83,17 @@ if ($result && $result->num_rows > 0) {
 </div>
 <br>
 <br>
+        <a href="../pages/index.php">← Back to Home</a>
+
+        <script>
+            // On load, record a watch entry; you could also ping periodically with currentTime
+            (function(){
+                var movieId = <?= json_encode((int)$movie['MovieID']) ?>;
+                var url = '../actions/watch_movie.php?id=' + movieId;
+                // Use a tiny image beacon to avoid blocking
+                var img = new Image();
+                img.src = url;
+            })();
+        </script>
 <?php include '../includes/footer.php'; ?>
 
