@@ -7,10 +7,28 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #1d2237;
   color: #fff;
   min-height: 100vh;
   position: relative;
+}
+
+/* Navbar that matches the index body */
+.site-navbar {
+  background-color: #1d2237 !important; /* same as body */
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.site-navbar .navbar-brand img {
+  filter: brightness(1.05);
+}
+.site-navbar .nav-link {
+  color: rgba(255,255,255,0.9) !important;
+}
+.site-navbar .nav-link:hover {
+  color: #ffffff !important;
+}
+.site-navbar .btn {
+  border-radius: 8px;
 }
 
 .background {
@@ -126,6 +144,12 @@ form button {
 .movie-card {
   position: relative;
   overflow: hidden;
+}
+
+/* Add a subtle dark grey border to every movie tile */
+.movie-card {
+  border: 1px solid rgba(0,0,0,0.45);
+  border-radius: 6px;
 }
 
 .movie-card .poster-wrap {

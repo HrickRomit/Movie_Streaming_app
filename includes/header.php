@@ -15,7 +15,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-dark site-navbar">
   <a class="navbar-brand" href="../pages/index.php">
     <img src="../uploads/logos/main_logo.jpg" alt="MovieDB Logo" height="40">
 </a>
@@ -28,14 +28,14 @@
     <ul class="navbar-nav mr-auto">
 
 <!--categories dropdown* -->
-<style>
+  <style>
   .dropdown:hover .dropdown-menu {
     display: block;
   }
   .dropdown-menu {
     display: none;
     position: absolute;
-    background: white;
+    background: #313545ff; /* match body */
     min-width: 150px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 100;
@@ -43,13 +43,13 @@
   .dropdown-menu a {
     display: block;
     padding: 8px 16px;
-    color: #000000ff;
+    color: #ffffff;
     text-decoration: none;
   }
   .dropdown-menu a:hover {
-    background: #646464ff;
+    background: #2c3e57;
   }
-</style>
+  </style>
 
 <li class="nav-item dropdown" style="position:relative;">
   <a class="nav-link dropdown-toggle" href="#">Categories</a>
@@ -79,8 +79,9 @@
       <?php endif; ?>
     </ul>
 
-    <form class="form-inline my-2 my-lg-0" action="#" method="GET">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search movies" name="query" />
+    <form class="form-inline my-2 my-lg-0" action="../pages/index.php" method="GET">
+      <?php $currentQuery = isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search movies" name="query" value="<?= $currentQuery ?>" />
       <button class="btn btn-outline-success my-2 my-sm-0" 
         type="submit" 
         style="background-color:#2C3E57; color:white; border:none; border-radius:8px;">
