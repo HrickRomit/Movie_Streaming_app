@@ -68,7 +68,7 @@ if ($result && $result->num_rows > 0) {
                                 ?>
 
                                 <?php if (!empty($movie['Description'])): ?>
-                                    <div class="mt-2"><strong>Description:</strong></div>
+                                    <div class="mt-2"><strong>Description:</strong></div> 
                                     <div class="text-light small" style="white-space:pre-wrap;"><?= htmlspecialchars($movie['Description']) ?></div>
                                 <?php endif; ?>
                         </div>
@@ -76,6 +76,7 @@ if ($result && $result->num_rows > 0) {
         </div>
     </div>
 </div>
-
+<br>
+<br>
 <?php include '../includes/footer.php'; ?>
 
