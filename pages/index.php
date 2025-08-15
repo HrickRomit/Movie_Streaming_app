@@ -19,6 +19,34 @@ include '../config/db.php';
 
 <?php
 $genreId = isset($_GET['genre']) ? (int)$_GET['genre'] : 0;
+// Resolve category name when set, for breadcrumb
+$genreName = '';
+if ($genreId > 0) {
+    $gstmt = $conn->prepare("SELECT GenreName FROM genre WHERE genreid = ? LIMIT 1");
+    if ($gstmt) {
+        $gstmt->bind_param("i", $genreId);
+        $gstmt->execute();
+        $gres = $gstmt->get_result();
+        if ($gres && $gres->num_rows > 0) {
+            $grow = $gres->fetch_assoc();
+            $genreName = $grow['GenreName'];
+        }
+        $gstmt->close();
+    }
+}
+
+// Breadcrumb: always show Home / Movies; add category if selected
+echo '<div class="container mt-2">';
+echo '  <nav aria-label="breadcrumb">';
+echo '    <ol class="breadcrumb bg-transparent pl-0">';
+echo '      <li class="breadcrumb-item"><a href="index.php">Home</a></li>';
+echo '      <li class="breadcrumb-item"><a href="index.php">Movies</a></li>';
+if ($genreName !== '') {
+    echo '      <li class="breadcrumb-item active" aria-current="page">' . htmlspecialchars($genreName) . '</li>';
+}
+echo '    </ol>';
+echo '  </nav>';
+echo '</div>';
 $searchQuery = isset($_GET['query']) ? trim($_GET['query']) : '';
 
 // Pagination setup
