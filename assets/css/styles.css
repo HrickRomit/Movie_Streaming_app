@@ -121,3 +121,57 @@ form button {
     display: block;            /* make it work on block elements */
     max-width: 100%;           /* don't exceed parent width */
 }
+
+/* Movie card hover: blur thumbnail and show play button */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-card .poster-wrap {
+  position: relative;
+}
+
+.movie-card .poster-wrap .card-img-top {
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.movie-card:hover .poster-wrap .card-img-top {
+  filter: blur(2px) brightness(0.7);
+  transform: scale(1.02);
+}
+
+.movie-card .poster-wrap .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none; /* keep whole card clickable */
+}
+
+.movie-card:hover .poster-wrap .play-overlay {
+  opacity: 1;
+}
+
+.play-overlay .play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e50914; /* Netflix red */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+.play-overlay .play-btn svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 2px; /* optical centering for triangle */
+  fill: currentColor;
+}

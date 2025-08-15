@@ -8,8 +8,9 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <!-- Custom CSS (cache-busted when file changes) -->
+  <?php $cssPath = __DIR__ . '/../assets/css/styles.css'; $v = file_exists($cssPath) ? filemtime($cssPath) : time(); ?>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=<?= $v ?>">
 </head>
 <body>
 

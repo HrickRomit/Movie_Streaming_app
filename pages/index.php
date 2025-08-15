@@ -14,7 +14,7 @@ include '../includes/header.php';
 <!-- Page content -->
 <div class="container mt-5">
     <h1>Welcome to MovieDB!</h1>
-    <p>You are logged in successfully.</p>
+    <p>Discover your next favorite movie.</p>
 </div>
 
 <?php
@@ -55,14 +55,22 @@ while ($row = $result->fetch_assoc()) {
     if (!file_exists($img)) { $img = $placeholder; }
 
     echo '    <div class="col-6 col-md-4 col-lg-3 mb-4">';
-    echo '    <a href="play_movie.php?id='. $movieID .'" style="text-decoration:none;color:inherit;">';
-    echo '      <div class="card bg-dark text-white h-100" style="border:none;">';
-    echo '        <img src="'. $img .'" alt="'. htmlspecialchars($row['MovieName']) .'" class="card-img-top" style="height:350px;object-fit:cover;">';
-    echo '        <div class="card-body text-center p-2">';
-    echo '          <h6 class="card-title mb-1" style="display:block;width:100%;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"title="'. htmlspecialchars($row['MovieName']) .'">'. htmlspecialchars($row['MovieName']) .'</h6>';
-    echo '          <div class="small text-muted">'. htmlspecialchars($row['MovieLanguage']) .' • '. htmlspecialchars($row['ReleaseYear']).' • '. htmlspecialchars($row['GenreName']) .'</div>';
+    echo '      <a href="play_movie.php?id='. $movieID .'" style="text-decoration:none;color:inherit;">';
+    echo '        <div class="card bg-dark text-white h-100 movie-card" style="border:none;">';
+    echo '          <div class="poster-wrap">';
+    echo '            <img src="'. $img .'" alt="'. htmlspecialchars($row['MovieName']) .'" class="card-img-top" style="height:350px;object-fit:cover;">';
+    echo '            <div class="play-overlay" aria-hidden="true">';
+    echo '              <div class="play-btn" aria-label="Play">';
+    echo '                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>';
+    echo '              </div>';
+    echo '            </div>';
+    echo '          </div>';
+    echo '          <div class="card-body text-center p-2">';
+    echo "            <h6 class=\"card-title mb-1\" style=\"display:block;width:100%;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\" title=\"". htmlspecialchars($row['MovieName']) ."\">". htmlspecialchars($row['MovieName']) ."</h6>";
+    echo '            <div class="small text-muted">'. htmlspecialchars($row['MovieLanguage']) .' • '. htmlspecialchars($row['ReleaseYear']).' • '. htmlspecialchars($row['GenreName']) .'</div>';
+    echo '          </div>';
     echo '        </div>';
-    echo '      </div>';
+    echo '      </a>';
     echo '    </div>';
 }
 
