@@ -16,6 +16,11 @@ require '../config/db.php';
     <?php endif; ?>
 
     <form action="../actions/login_action.php" method="POST">
+      <!-- Current local time display -->
+      <div class="current-time" style="color:#fff;margin-bottom:10px;font-size:0.95rem;">
+        <strong>Current Local Time:</strong>
+        <span id="localTime">--:--:--</span>
+      </div>
       <input type="text" name="email" placeholder="Email or mobile number" required />
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Sign In</button>
@@ -44,5 +49,19 @@ require '../config/db.php';
     </form>
   <?php endif; ?>
 </div>
+<script>
+  (function() {
+    function pad(n) { return n < 10 ? '0' + n : n; }
+    function updateClock() {
+      var d = new Date();
+      var hh = pad(d.getHours());
+      var mm = pad(d.getMinutes());
+      var ss = pad(d.getSeconds());
+      var el = document.getElementById('localTime');
+      if (el) el.textContent = hh + ':' + mm + ':' + ss;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  })();
+</script>
 
-<?php include '../includes/footer.php'; ?>

@@ -50,6 +50,14 @@ if ($result && $result->num_rows > 0) {
                 </div>
             </div>
 
+            <!-- Add Favourites button (right-aligned below the player) -->
+            <div class="d-flex justify-content-end mt-3">
+                <form action="../actions/add_favourite.php" method="POST" style="display:inline;">
+                    <input type="hidden" name="movie_id" value="<?= (int)$movie_id ?>">
+                    <button type="submit" class="btn btn-dark">Add Favourites</button>
+                </form>
+            </div>
+
                         <div class="mt-3 text-muted">
                                 <div><strong>Language:</strong> <?= htmlspecialchars($movie['MovieLanguage']) ?></div>
                                 <div><strong>Year:</strong> <?= htmlspecialchars($movie['ReleaseYear']) ?></div>
