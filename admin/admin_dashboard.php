@@ -20,7 +20,7 @@ include '../config/db.php'; // ✅ Add this line to connect to DB
     
     <div class="d-flex flex-column align-items-center">
         <a href="../admin/add_movie.php" class="btn btn-success btn-lg mb-3" style="width: 50%;">Add Movie</a>
-        <a href="../admin_actions/delete_user.php" class="btn btn-warning btn-lg mb-3" style="width: 50%;">Delete User</a>
+        <a href="../admin/manage_users.php" class="btn btn-warning btn-lg mb-3" style="width: 50%;">Manage Users</a>
     </div>
 
     <h4 class="mt-5 mb-3">Movies:</h4>
