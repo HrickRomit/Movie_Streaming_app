@@ -17,9 +17,13 @@ include '../config/db.php'; // ✅ Add this line to connect to DB
 <body>
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Welcome, Admin!</h2>
+    <div class="back-link">
+            <a href="../pages/login.php">← Back to User Login</a>
+        </div>
+    
     
     <div class="d-flex flex-column align-items-center">
-        <a href="../admin/add_movie.php" class="btn btn-success btn-lg mb-3" style="width: 50%;">Add Movie</a>
+        <a href="../admin/add_movie.php" class="btn btn-primary btn-lg mb-3" style="width: 50%;">Add Movie</a>
         <a href="../admin/manage_users.php" class="btn btn-warning btn-lg mb-3" style="width: 50%;">Manage Users</a>
     </div>
 
